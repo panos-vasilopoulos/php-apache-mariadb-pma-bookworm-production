@@ -1,13 +1,13 @@
 # About
 
-This GitHub repository offers an optimized Apache web server setup for PHP applications, including MariaDB and phpMyAdmin for robust database management, enhancing performance and security while simplifying deployment and administration tasks. 
+This GitHub repository offers an optimized Apache web server setup for PHP applications, including MariaDB and phpMyAdmin for database management, and enhancing performance and security while simplifying deployment and administration tasks. 
 
 ## Images and Space Required
 
 Upon building three services (containers) will be deployed based on the following images:
-    - php:8.4-apache-bookworm (Customized): 621MB
-    - mariadb: 336MB
-    - phpmyadmin/phpmyadmin: 571MB
+- php:8.4-apache-bookworm (Customized): 621MB
+- mariadb: 336MB
+- phpmyadmin/phpmyadmin: 571MB
 
 Total available space required (without your application): 1.53GB
 
@@ -162,11 +162,11 @@ Contains the publicly accessible files for the web application.
     Ensure that your application's entry point is `index.php` inside the `app/public/` directory.
 
 4. **Compose and Start the Services (Containers)**:
-    If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
+    - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     ```sh
     docker-compose up --build
     ```
-    If you have Compose v2 (Current)
+    - If you have Compose v2 (Current)
     ```sh
     docker compose up --build
     ```
@@ -176,11 +176,11 @@ Contains the publicly accessible files for the web application.
     - Open your web browser and navigate to `http://localhost:8182` to access the PhpMyAdmin application using the credentials defined in the `.env` file.
 
 6. **Stop the Services (Containers)**:
-    If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
+    - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     ```sh
     docker-compose down
     ```
-    If you have Compose v2 (Current)
+    - If you have Compose v2 (Current)
     ```sh
     docker compose down
     ```
@@ -188,11 +188,11 @@ Contains the publicly accessible files for the web application.
 ## Stop, Remove and Rebuild the Services (Containers)
 
 1. **Remove the Services (Containers)**:
-    If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
+    - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     ```sh
     docker-compose down --rmi all --volumes --remove-orphans
     ```
-    If you have Compose v2 (Current)
+    - If you have Compose v2 (Current)
     ```sh
     docker compose down --rmi all --volumes --remove-orphans
     ```
@@ -203,11 +203,11 @@ Contains the publicly accessible files for the web application.
     ```
 
 3. **If you Rebuilded the PHP Apache Stack then Compose again and Start the Services (Containers)**:
-    If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
+    - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     ```sh
     docker-compose up --build
     ```
-    If you have Compose v2 (Current)
+    - If you have Compose v2 (Current)
     ```sh
     docker compose up --build
     ```
