@@ -137,7 +137,7 @@ Contains the publicly accessible files for the web application.
 
 # How to use this repository
 
-## Clone, compose, and start the services (containers)
+## Clone, build, compose, and start the services (containers)
 
 1. **Clone the repository**:
     ```sh
@@ -166,7 +166,7 @@ Contains the publicly accessible files for the web application.
     docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
     ```
 
-5. **Compose and start the services (containers) (if needed)**:
+5. **Compose and start the services (containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -184,7 +184,7 @@ Contains the publicly accessible files for the web application.
     - Open your web browser and navigate to `http://localhost:8180` to access the web application.
     - Open your web browser and navigate to `http://localhost:8182` to access the PhpMyAdmin application using the credentials defined in the `.env` file.
 
-6. **Stop the services (containers)**:
+7. **Stop the services (containers) (if needed)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -198,9 +198,9 @@ Contains the publicly accessible files for the web application.
     docker compose down
     ```
 
-## Stop, remove and rebuild the services (containers)
+## Stop, remove, rebuild, compose, and restart the services (containers)
 
-1. **Remove the services (containers)**:
+1. **Stop the services (containers) and remove non-consistent volumes**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -214,7 +214,7 @@ Contains the publicly accessible files for the web application.
     docker compose down --rmi all --volumes --remove-orphans
     ```
 
-2. **Remove the PHP Apache Image (if needed)**:
+2. **Remove the PHP Apache image (if needed)**:
     ```sh
     docker image list
     ```
@@ -228,7 +228,7 @@ Contains the publicly accessible files for the web application.
     docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
     ```
 
-4. **If you rebuilded the PHP Apache image or made changes to the docker-compose file then compose again and start the services (Containers)**:
+4. **If you rebuilded the PHP Apache image or even made changes to the docker-compose file then compose again and start the services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
