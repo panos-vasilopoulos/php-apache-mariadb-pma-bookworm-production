@@ -165,13 +165,13 @@ Contains the publicly accessible files for the web application.
 
 4. **Compose and Start the Services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
-
+    <br>
 
     ```sh
     docker-compose up --build
     ```
     - If you have Compose v2 (Current)
-
+    <br>
 
     ```sh
     docker compose up --build
@@ -183,13 +183,13 @@ Contains the publicly accessible files for the web application.
 
 6. **Stop the Services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
-
+    <br>
 
     ```sh
     docker-compose down
     ```
     - If you have Compose v2 (Current)
-
+    <br>
 
     ```sh
     docker compose down
@@ -199,13 +199,13 @@ Contains the publicly accessible files for the web application.
 
 1. **Remove the Services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
-
+    <br>
 
     ```sh
     docker-compose down --rmi all --volumes --remove-orphans
     ```
     - If you have Compose v2 (Current)
-
+    <br>
 
     ```sh
     docker compose down --rmi all --volumes --remove-orphans
@@ -219,12 +219,12 @@ Contains the publicly accessible files for the web application.
 3. **If you Rebuilded the PHP Apache Stack then Compose again and Start the Services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
-    
+
     ```sh
     docker-compose up --build
     ```
     - If you have Compose v2 (Current)
-
+    <br>
 
     ```sh
     docker compose up --build
