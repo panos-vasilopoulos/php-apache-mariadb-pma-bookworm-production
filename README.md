@@ -44,7 +44,7 @@ The following packages and PHP extensions are included in the customized webserv
 
 The following is an overview of the directory structure and functionality of the PHP-Apache-MariaDB-PMA-Bookworm production setup.
 
-## Directory Structure
+## Directories Structure
 
 ```plaintext
 php-apache-mariadb-pma-bookworm-production/
