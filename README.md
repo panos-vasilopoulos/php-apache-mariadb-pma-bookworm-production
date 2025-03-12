@@ -2,7 +2,7 @@
 
 This GitHub repository offers a containerized and optimized Apache web server setup for PHP applications, including MariaDB and phpMyAdmin for database management, and enhances performance and security while simplifying deployment and administration tasks. 
 
-## Images and Space Required
+## Images and space required
 
 Upon building, three services (containers) will be deployed based on the following images:
 - php:8.4-apache-bookworm (Customized): 621MB
@@ -12,7 +12,7 @@ Upon building, three services (containers) will be deployed based on the followi
 Total available space required (without your application): 1.53GB
 
 
-# PHP Extensions Installed
+# PHP extensions installed
 
 The following packages and PHP extensions are included in the customized webserver image:
 
@@ -40,11 +40,11 @@ The following packages and PHP extensions are included in the customized webserv
 - opcache
 
 
-# Directories Structure and Functionality
+# Directories structure and functionality
 
 The following is an overview of the directory structure and functionality of the PHP-Apache-MariaDB-PMA-Bookworm production setup.
 
-## Directories Structure
+## Directories structure
 
 ```plaintext
 php-apache-mariadb-pma-bookworm-production/
@@ -78,7 +78,7 @@ php-apache-mariadb-pma-bookworm-production/
             └── 503.php
 ```
 
-## Root Directory
+## Root `/` directory
 
 - `.env.example`: Example environment variables file to be used as a template.
 - `.gitignore`: Specifies files and directories to be ignored by Git.
@@ -86,7 +86,7 @@ php-apache-mariadb-pma-bookworm-production/
 - `Dockerfile`: Dockerfile for building the custom PHP-Apache Docker image.
 - `README.md`: Project documentation file.
 
-## `app/` Directory
+## `app/` directory
 
 Contains application-specific configuration and public files.
 
@@ -94,7 +94,7 @@ Contains application-specific configuration and public files.
 - `php.ini`: Custom PHP configuration file.
 - `webapp.conf`: Apache virtual host configuration file.
 
-## `public/` Directory
+## `app/public/` directory
 
 Contains the publicly accessible files for the web application.
 
@@ -117,7 +117,7 @@ Contains the publicly accessible files for the web application.
   - `500.php`: Custom error page for HTTP 500 errors.
   - `503.php`: Custom error page for HTTP 503 errors.
 
-## Docker Configuration
+## Docker configuration
 
 - `docker-compose.yml`: Defines the services for the web application, including:
   - `web`: PHP-Apache service.
@@ -125,7 +125,7 @@ Contains the publicly accessible files for the web application.
   - `phpmyadmin`: phpMyAdmin service.
 - `Dockerfile`: Builds the custom PHP-Apache Docker image with necessary extensions and configurations.
 
-## Environment Variables
+## Environment variables .env
 
 - `SITE_URL`: The URL of the site.
 - `MYSQL_DB_CONNECTION`: Database connection type (e.g., `mysqli` or `pdo_mysql`).
@@ -135,23 +135,23 @@ Contains the publicly accessible files for the web application.
 - `MYSQL_PASSWORD`: Password for the database user.
 
 
-# How to Use this Repository
+# How to use this repository
 
-## Clone, Compose, and Start the Services (Containers)
+## Clone, compose, and start the services (containers)
 
-1. **Clone the Repository**:
+1. **Clone the repository**:
     ```sh
     git clone https://github.com/panos-vasilopoulos/php-apache-mariadb-pma-bookworm-production.git
     cd php-apache-mariadb-pma-bookworm-production
     ```
 
-2. **Copy and Configure Environment Variables**:
+2. **Copy and configure the environment variables**:
     ```sh
     cp .env.example .env
     ```
     Edit the `.env` file to configure your environment variables.
 
-3. **Move/Copy/Edit your Application Inside the Public Directory**:
+3. **Move/Copy/Edit your application inside the public directory**:
     ```sh
     mv /path/to/your/application/* app/public/
     ```
@@ -161,12 +161,12 @@ Contains the publicly accessible files for the web application.
     ```
     Ensure that your application's entry point is `index.php` inside the `app/public/` directory.
 
-4. **Build the PHP Apache Stack**:
+4. **Build the PHP Apache image**:
     ```sh
     docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
     ```
 
-5. **Compose and Start the Services (Containers) (if needed)**:
+5. **Compose and start the services (containers) (if needed)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -180,11 +180,11 @@ Contains the publicly accessible files for the web application.
     docker compose up --build
     ```
 
-6. **Access your Website/Application and Database Management Tool**:
+6. **Access your website/application and database management tool**:
     - Open your web browser and navigate to `http://localhost:8180` to access the web application.
     - Open your web browser and navigate to `http://localhost:8182` to access the PhpMyAdmin application using the credentials defined in the `.env` file.
 
-6. **Stop the Services (Containers)**:
+6. **Stop the services (containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -198,9 +198,9 @@ Contains the publicly accessible files for the web application.
     docker compose down
     ```
 
-## Stop, Remove and Rebuild the Services (Containers)
+## Stop, remove and rebuild the services (containers)
 
-1. **Remove the Services (Containers)**:
+1. **Remove the services (containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -214,12 +214,21 @@ Contains the publicly accessible files for the web application.
     docker compose down --rmi all --volumes --remove-orphans
     ```
 
-2. **Rebuild the PHP Apache Stack (if needed)**:
+2. **Remove the PHP Apache Image (if needed)**:
+    ```sh
+    docker image list
+    ```
+    Find in the list the IMAGE ID that corresponds to the myaerolab/php-8-4-apache-bookworm-production image and copy it in the placeholder below:
+    ```sh
+    docker image remove [IMAGE ID]
+    ```
+
+3. **Rebuild the PHP Apache image (if needed)**:
     ```sh
     docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
     ```
 
-3. **If you Rebuilded the PHP Apache Stack then Compose again and Start the Services (Containers)**:
+4. **If you rebuilded the PHP Apache image or made changes to the docker-compose file then compose again and start the services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
