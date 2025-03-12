@@ -98,14 +98,14 @@ Contains application-specific configuration and public files.
 
 Contains the publicly accessible files for the web application.
 
-- `index.php`: Main entry point for the PHP application (Currently phpinfo()).
+- `index.php`: Main entry point for the PHP application.
 - `assets/`: Directory for static assets.
-  - `css/`: Directory for CSS files (Currently without content).
+  - `css/`: Directory for CSS files.
     - `main.css`: Main CSS file for styling.
   - `images/`: Directory for image files.
     - `photo.jpg`: Example image file.
   - `js/`: Directory for JavaScript files.
-    - `main.js`: Main JavaScript file (Currently without content).
+    - `main.js`: Main JavaScript file.
   - `videos/`: Directory for video files.
     - `video.mp4`: Example video file.
 - `errors/`: Directory for custom error pages.
