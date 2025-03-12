@@ -109,13 +109,13 @@ Contains the publicly accessible files for the web application.
   - `videos/`: Directory for video files.
     - `video.mp4`: Example video file.
 - `errors/`: Directory for custom error pages.
-  - `400.php`: Custom error page for HTTP 400 errors. (Currently without content).
-  - `401.php`: Custom error page for HTTP 401 errors. (Currently without content)
-  - `403.php`: Custom error page for HTTP 403 errors. (Currently without content)
-  - `404.php`: Custom error page for HTTP 404 errors. (Currently without content)
-  - `408.php`: Custom error page for HTTP 408 errors. (Currently without content)
-  - `500.php`: Custom error page for HTTP 500 errors. (Currently without content)
-  - `503.php`: Custom error page for HTTP 503 errors. (Currently without content)
+  - `400.php`: Custom error page for HTTP 400 errors.
+  - `401.php`: Custom error page for HTTP 401 errors.
+  - `403.php`: Custom error page for HTTP 403 errors.
+  - `404.php`: Custom error page for HTTP 404 errors.
+  - `408.php`: Custom error page for HTTP 408 errors.
+  - `500.php`: Custom error page for HTTP 500 errors.
+  - `503.php`: Custom error page for HTTP 503 errors.
 
 ## Docker Configuration
 
