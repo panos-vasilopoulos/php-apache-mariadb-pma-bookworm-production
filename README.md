@@ -228,7 +228,7 @@ Contains the publicly accessible files for the web application.
     docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
     ```
 
-4. **If you rebuilded the PHP Apache image or even made changes to the docker-compose file then compose again and start the services (Containers)**:
+4. **If you rebuilded the PHP Apache image or even made changes to the docker-compose file then compose again and start the services (containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
