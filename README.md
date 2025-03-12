@@ -39,7 +39,6 @@ The following packages and PHP extensions are included in the customized webserv
 - bcmath
 - opcache
 
----
 
 # Directories Structure and Functionality
 
@@ -135,7 +134,6 @@ Contains the publicly accessible files for the web application.
 - `MYSQL_USER`: Database user.
 - `MYSQL_PASSWORD`: Password for the database user.
 
----
 
 # How to Use this Repository
 
