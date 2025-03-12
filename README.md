@@ -219,6 +219,7 @@ Contains the publicly accessible files for the web application.
 3. **If you Rebuilded the PHP Apache Stack then Compose again and Start the Services (Containers)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
+    
     ```sh
     docker-compose up --build
     ```
