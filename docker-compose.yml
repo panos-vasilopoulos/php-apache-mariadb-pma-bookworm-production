@@ -42,8 +42,8 @@ services:
       - webservices-network
     environment:
       PMA_HOST: mariadb-service
-      PMA_USER: ${MYSQL_USER}
-      PMA_PASSWORD: ${MYSQL_PASSWORD}
+      #PMA_USER: ${MYSQL_USER}
+      #PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "8182:80"
     depends_on:
