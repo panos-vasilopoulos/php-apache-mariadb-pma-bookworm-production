@@ -1,0 +1,59 @@
+services:
+  web:
+    image: myaerolab/php-8-4-apache-bookworm-production:latest
+    container_name: web-service
+    restart: always
+    networks:
+      - webservices-network
+    volumes:
+      - uploads-volume:/var/www/html/uploads
+    ports:
+      - "8180:80"
+    environment:
+      MYSQL_DB_CONNECTION: ${MYSQL_DB_CONNECTION}
+      MYSQL_DB_NAME: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      SITE_URL: ${SITE_URL}
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    container_name: mariadb-service
+    restart: always
+    networks:
+      - webservices-network
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8181:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-service
+    restart: always
+    networks:
+      - webservices-network
+    environment:
+      PMA_HOST: mariadb-service
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8182:80"
+    depends_on:
+      - db
+
+volumes:
+  uploads-volume:
+    driver: local
+  mariadb-data:
+
+networks:
+  webservices-network:
+    driver: bridge
