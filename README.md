@@ -151,7 +151,7 @@ Contains the publicly accessible files for the web application.
     ```
     Edit the `.env` file to configure your environment variables.
 
-3. **Move/Copy your Application Inside the Public Directory**:
+3. **Move/Copy/Edit your Application Inside the Public Directory**:
     ```sh
     mv /path/to/your/application/* app/public/
     ```
@@ -161,7 +161,12 @@ Contains the publicly accessible files for the web application.
     ```
     Ensure that your application's entry point is `index.php` inside the `app/public/` directory.
 
-4. **Compose and Start the Services (Containers)**:
+4. **Build the PHP Apache Stack**:
+    ```sh
+    docker build --no-cache -t myaerolab/php-8-4-apache-bookworm-production:latest .
+    ```
+
+5. **Compose and Start the Services (Containers) (if needed)**:
     - If you have Compose v1 (Deprecated. Consider migrating to v2: https://docs.docker.com/compose/releases/migrate/)
     <br>
 
@@ -175,7 +180,7 @@ Contains the publicly accessible files for the web application.
     docker compose up --build
     ```
 
-5. **Access your Website/Application and Database Management Tool**:
+6. **Access your Website/Application and Database Management Tool**:
     - Open your web browser and navigate to `http://localhost:8180` to access the web application.
     - Open your web browser and navigate to `http://localhost:8182` to access the PhpMyAdmin application using the credentials defined in the `.env` file.
 
