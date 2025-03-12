@@ -1,6 +1,6 @@
 # About
 
-This GitHub repository offers an optimized Apache web server setup for PHP applications, including MariaDB and phpMyAdmin for database management, and enhancing performance and security while simplifying deployment and administration tasks. 
+This GitHub repository offers an optimized Apache web server setup for PHP applications, including MariaDB and phpMyAdmin for database management, and enhances performance and security while simplifying deployment and administration tasks. 
 
 ## Images and Space Required
 
