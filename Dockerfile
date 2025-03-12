@@ -46,7 +46,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 # Copy application code to Apache's document root
 COPY ./app/public/ /var/www/html/
-COPY ./app/.htaccess /var/www/html/
+COPY ./app/.htaccess /var/www/html/.htaccess
 COPY ./app/php.ini /usr/local/etc/php/conf.d/custom-php.ini
 
 # Create a uploads directory and assign proper permissions

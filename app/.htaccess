@@ -1,32 +1,7 @@
 # Enable URL rewriting
 RewriteEngine On
 
-# Remove 'index.php' from URLs
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
-
-# Cache control settings for static resources
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-</IfModule>
-
-# Deny access to sensitive files and directories
-<FilesMatch "\.(env|htaccess|phps|git)">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Protect against directory listing
-Options -Indexes
-
-# Set custom error pages
+# Custom Error Documents
 ErrorDocument 400 /errors/400.php
 ErrorDocument 401 /errors/401.php
 ErrorDocument 403 /errors/403.php
@@ -35,20 +10,40 @@ ErrorDocument 408 /errors/408.php
 ErrorDocument 500 /errors/500.php
 ErrorDocument 503 /errors/503.php
 
-# Prevent access to files with hidden extensions (.env files etc.)
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
+# Rewrite rules for non-error pages
+# Only rewrite if the requested resource is not a file or directory and does not match an error code
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [L]
+
+# Cache control settings for static resources
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Deny access to sensitive files and directories
+<FilesMatch "\.(env|htaccess|phps|git|.*\.secret)$">
+Order allow,deny
+Deny from all
 </FilesMatch>
+
+# Protect against directory listing
+Options -Indexes
 
 # Force compression for text/html
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript
 </IfModule>
 
 # Set server-side caching headers (optional)
 <IfModule mod_headers.c>
-    <filesMatch "\.(html|htm|js|css)$">
-        Header set Cache-Control "max-age=7200, public"
-    </filesMatch>
+<filesMatch "\.(html|htm|js|css)$">
+Header set Cache-Control "max-age=7200, public"
+</filesMatch>
 </IfModule>
